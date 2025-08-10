@@ -1,0 +1,179 @@
+Skip to content
+Navigation Menu
+itzikhr18
+kesef-lecha-landing
+
+Type / to search
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Files
+Go to file
+t
+landing.html
+kesef-lecha-landing
+/landing.html
+itzikhr18
+itzikhr18
+Add files via upload
+4a284e3
+ · 
+3 minutes ago
+
+Code
+
+Blame
+147 lines (140 loc) · 4.46 KB
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>כסף שמגיע לך – החזרי מס</title>
+    <style>
+        /* בסיסית ומינימליסטית – מותאם למובייל ולדסקטופ */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fc;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            color: #333;
+        }
+        header {
+            background-color: #3a7bd5;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        main {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .trust {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .trust li {
+            margin-bottom: 10px;
+            padding-right: 25px;
+            position: relative;
+        }
+        .trust li::before {
+            content: "✓";
+            color: #3a7bd5;
+            position: absolute;
+            right: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #3a7bd5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #315fae;
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ייתכן שמגיע לך אלפי שקלים מהמדינה</h1>
+        <p>בדיקת זכאות להחזר מס תוך פחות מדקה</p>
+    </header>
+    <main>
+        <h2 style="margin-top: 0;">בדיקת זכאות להחזר מס</h2>
+        <ul class="trust">
+            <li>בדיקה חינם וללא התחייבות</li>
+            <li>מעל 90% מהישראלים זכאים להחזר</li>
+            <li>הנתונים שלך מאובטחים ומטופלים בסודיות מלאה</li>
+        </ul>
+        <!-- טופס הליד -->
+        <form method="POST" action="https://YOUR_N8N_WEBHOOK_URL">
+            <label for="full_name">שם מלא</label>
+            <input type="text" id="full_name" name="full_name" required>
+
+            <label for="phone">טלפון</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">אימייל</label>
+            <input type="email" id="email" name="email">
+
+            <label for="city">עיר</label>
+            <input type="text" id="city" name="city">
+
+            <label for="income_type">סוג הכנסה</label>
+            <select id="income_type" name="income_type" required>
+                <option value="">בחר</option>
+                <option value="שכיר">שכיר</option>
+                <option value="עצמאי">עצמאי</option>
+                <option value="גם וגם">גם וגם</option>
+            </select>
+
+            <label for="notes">הערות</label>
+            <textarea id="notes" name="notes"></textarea>
+
+            <!-- Honeypot נגד ספאם -->
+            <div class="hidden">
+                <label for="website">אל תמלא כאן</label>
+                <input type="text" id="website" name="website">
+            </div>
+
+            <button type="submit">שלח</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2025 כסף שמגיע לך – כל הזכויות שמורות</p>
+    </footer>
+</body>
+</html>
